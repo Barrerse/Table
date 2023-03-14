@@ -18,7 +18,7 @@ const Navbar = () => {
           {/* Logo and brand name */}
           <div className="flex items-center text-gray-400 font-semibold text-xl">
             <img src={logo} className="w-12 h-12 mr-2" alt="Logo" />
-            <p>Games</p>
+            <p>TABL</p>
           </div>
         </div>
 
