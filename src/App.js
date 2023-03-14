@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar';
+import Search from './components/Search.js';
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       {/* nav bar */}
       <Navbar />
       {/* categories */}
+      <Search />
       {/* recomended */}
       {/* offers */}
       {/* browse */}  
