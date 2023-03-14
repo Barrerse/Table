@@ -26,13 +26,13 @@ const Navbar = () => {
         <div className="hidden lg:flex pl-10">
           <ul className="text-gray-400 text-sm flex gap-5">
             <li>
-              <p>SHOP</p>
+              <p>STORE</p>
             </li>
             <li>
               <p>EXPLORE</p>
             </li>
             <li>
-              <p>INFO</p>
+              <p>ABOUT</p>
             </li>
             <li>
               <p>CONTACT</p>
