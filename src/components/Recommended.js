@@ -1,5 +1,9 @@
 import React from "react";
 import gaming from "../assets/holder.png";
+import gaming1 from "../assets/holder1.png";
+import gaming2 from "../assets/holder2.png";
+import gaming3 from "../assets/holder3.png";
+import gaming4 from "../assets/holder4.png";
 import { TbApps } from "react-icons/tb";
 
 const Recomended = () => {
@@ -19,26 +23,26 @@ const Recomended = () => {
             {/* todo: Add name using API */}
             <p className="text-[30px] mt-3">Name of Game</p>
             <div className="px-4 w-full h-[24rem] md:h-[15rem] pt-3">
-              <div className="h-[35%]   w-full flex pb-1 ">
+              <div className="h-[40%]   w-full flex pb-1 ">
                 <img
-                  src={gaming}
+                  src={gaming1}
                   alt=""
                   className="object-cover w-[50%] pr-1 "
                 />
                 <img
-                  src={gaming}
+                  src={gaming2}
                   alt=""
                   className="object-cover w-[50%] pl-1"
                 />
               </div>
-              <div className="h-[35%]  w-full flex pt-1 ">
+              <div className="h-[40%]  w-full flex pt-1 ">
                 <img
-                  src={gaming}
+                  src={gaming3}
                   alt=""
                   className="object-cover w-[50%] pr-1"
                 />
                 <img
-                  src={gaming}
+                  src={gaming4}
                   alt=""
                   className="object-cover w-[50%] pl-1"
                 />
