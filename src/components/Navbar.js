@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import { FiMenu } from "react-icons/fi";
 import { ImDownload } from "react-icons/im";
 import { BiWorld } from "react-icons/bi";
+// import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
   return (
