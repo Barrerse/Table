@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Search from './components/Search.js';
 import Recommended from './components/Recommended.js';
+import Login from './components/Login.js';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Search />
       {/* recomended */}
       <Recommended />
+      <Login />
       {/* offers */}
       {/* browse */}  
       {/* footer */}
