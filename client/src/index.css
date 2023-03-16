@@ -6,6 +6,13 @@
   font-family: 'Outfit', sans-serif;
 }
 
+.transition-image {
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
 .gradient {
   background: rgb(58,99,144);
   background: linear-gradient(90deg, rgba(58,99,144,1) 0%, rgba(41,86,144,1) 50%, rgba(15,33,110,1) 100%);
