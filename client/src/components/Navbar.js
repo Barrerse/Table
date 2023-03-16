@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { ImDownload } from "react-icons/im";
 import { BiWorld } from "react-icons/bi";
-// import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <div className="bg-gray-900">
       {/* Left section */}
       <div className="flex items-center max-w-screen-xl mx-auto relative">
         <div className="flex items-center justify-center lg:justify-start py-2 px-2 lg:py-6 lg:px-8 w-full lg:w-auto">
           {/* Hamburger menu icon */}
-          <div className="lg:hidden left-4 absolute text-white">
-            <FiMenu className="text-3xl" />
+          <div
+            className="lg:hidden left-4 absolute text-white cursor-pointer"
+            onClick={toggleMobileMenu}
+          >
+            {isMobileMenuOpen ? (
+              <FiX className="text-3xl" />
+            ) : (
+              <FiMenu className="text-3xl" />
+            )}
           </div>
 
           {/* Logo and brand name */}
@@ -27,16 +39,16 @@ const Navbar = () => {
         <div className="hidden lg:flex pl-10">
           <ul className="text-gray-400 text-sm flex gap-5">
             <li>
-            <p class="text-lg font-semibold hover:text-gray-300">STORE</p>
+              <p className="text-lg font-semibold hover:text-gray-300">STORE</p>
             </li>
             <li>
-            <p class="text-lg font-semibold hover:text-gray-300">EXPLORE</p>
+              <p className="text-lg font-semibold hover:text-gray-300">EXPLORE</p>
             </li>
             <li>
-            <p class="text-lg font-semibold hover:text-gray-300">ABOUT</p>
+              <p className="text-lg font-semibold hover:text-gray-300">ABOUT</p>
             </li>
             <li>
-            <p class="text-lg font-semibold hover:text-gray-300">CONTACT</p>
+              <p className="text-lg font-semibold hover:text-gray-300">CONTACT</p>
             </li>
           </ul>
         </div>
@@ -65,6 +77,36 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      
+         {/* Mobile menu */}
+         {isMobileMenuOpen && (
+        <div className="lg:hidden text-white text-sm mt-2 flex flex-col items-center">
+          {/* <div className="bg-gray-900 w-full py-2 px-4 flex justify-end">
+            <FiX
+              className="text-white text-2xl cursor-pointer"
+              onClick={toggleMobileMenu}
+            />
+          </div> */}
+          <ul className="flex flex-col gap-2 w-full text-center">
+            <li>
+              <p
+                className="text-lg font-semibold hover:text-gray-300">STORE</p>
+            </li>
+            <li>
+              <p className="text-lg font-semibold hover:text-gray-300">EXPLORE</p>
+            </li>
+            <li>
+              <p className="text-lg font-semibold hover:text-gray-300">ABOUT</p>
+            </li>
+            <li>
+              <p className="text-lg font-semibold hover:text-gray-300">CONTACT</p>
+            </li>
+            <li>
+              <p className="text-lg font-semibold hover:text-gray-300">SIGN IN</p>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
