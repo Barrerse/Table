@@ -5,16 +5,14 @@ import one from "../assets/holder1.png";
 import two from "../assets/holder.png";
 const SpecialOffer = () => {
   const cards = [
-    { wallpaper: one, title: "Gaming room" },
-    { wallpaper: one, title: "Gaming room" },
-    { wallpaper: one, title: "Gaming room" },
-    { wallpaper: one, title: "Gaming room" },
-    { wallpaper: one, title: "Gaming room" },
-    { wallpaper: one, title: "Gaming room" },
-    { wallpaper: one, title: "Gaming room" },
-    { wallpaper: one, title: "Gaming room" },
-    { wallpaper: one, title: "Gaming room" },
-    { wallpaper: one, title: "Gaming room" },
+    { wallpaper: one, title: "Board Game" },
+    { wallpaper: one, title: "Board Game" },
+    { wallpaper: one, title: "Board Game" },
+    { wallpaper: one, title: "Board Game" },
+    { wallpaper: one, title: "Board Game" },
+    { wallpaper: one, title: "Board Game" },
+    { wallpaper: one, title: "Board Game" },
+    { wallpaper: one, title: "Board Game" },
   ];
   return (
     <div className="mx-[2rem]  ">
