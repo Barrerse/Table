@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import gaming from "../assets/holder.png";
 import gaming1 from "../assets/holder1.png";
 import gaming2 from "../assets/holder2.png";
@@ -9,6 +9,7 @@ import { searchGamesAPI } from "../utils/searchTest.js";
 
 const Recomended = () => {
   const [mainImage, setMainImage] = useState(gaming);
+  const [searchedGames, setGameData] = useState([]);
 
   const handleImageHover = (imgSrc) => {
     setMainImage(imgSrc);
@@ -18,21 +19,26 @@ const Recomended = () => {
     setMainImage(gaming);
   };
 
-  window.onload = async (event) => {
+  const getData = async () => {
 
-      const response = await searchGamesAPI();
-   if (!response.ok){
-     throw new Error("Something went wrong");
-   }
-   const {games} = await response.json();
+    const response = await searchGamesAPI();
+ if (!response.ok){
+   throw new Error("Something went wrong");
+ }
+ const {games} = await response.json();
 
-   const gamesData = games.map((game) => ({
-     name: game.name,
-     photo: game.image_url
-   }));
+ const gamesData = games.map((game) => ({
+   name: game.name,
+   photo: game.image_url
+ }));
 
-   console.log(gamesData);
-  }
+ console.log(gamesData);
+ setGameData(gamesData);
+}
+
+useEffect(() =>{
+  getData();
+}, [])
 
   return (
     <div className="mx-[2rem] mt-[2rem] text-white text-[14px] overflow-hidden">
@@ -42,15 +48,15 @@ const Recomended = () => {
       {/* Featured */}
       <div className="h-full md:h-[24rem] w-full flex flex-col  md:flex-row pt-3">
         <div className="w-full md:w-[62%] h-full bg-red-400 flex ">
-        <img src={mainImage} alt="Board game main" className="object-cover w-full transition-image" />
+        <img src={searchedGames[2].photo} alt="Board game main" className="object-cover  transition-image flex center" />
         </div>
         <div className="bg-[#0f1922] h-full w-full md:w-[38%] flex  flex-col justify-between ">
           <div className="  flex flex-col  items-center">
-            <p className="text-[30px] mt-3">Name</p>
+            <p className="text-[30px] mt-3">{searchedGames[1].name}</p>
             <div className="px-4 w-full h-[24rem] md:h-[15rem] pt-3">
               <div className="h-[40%]   w-full flex pb-1 ">
                 <img
-                  src={gaming1}
+                  src={searchedGames[1].photo}
                   alt=""
                   className="object-cover w-[50%] pr-1 "
                   onMouseOver={() => handleImageHover(gaming1)}

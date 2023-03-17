@@ -19,77 +19,77 @@
 // test= makeRequestlist();
 // console.log(test);
 
-function createArrayOfObjects(imageLinks, gameTitles) {
-    if (imageLinks.length !== gameTitles.length) {
-      throw new Error('The arrays must have the same length');
-    }
+// function createArrayOfObjects(imageLinks, gameTitles) {
+//     if (imageLinks.length !== gameTitles.length) {
+//       throw new Error('The arrays must have the same length');
+//     }
   
-    const arrayOfObjects = [];
+//     const arrayOfObjects = [];
   
-    for (let i = 0; i < imageLinks.length; i++) {
-      const newObject = {
-        title: gameTitles[i],
-        imageLink: imageLinks[i],
-      };
+//     for (let i = 0; i < imageLinks.length; i++) {
+//       const newObject = {
+//         title: gameTitles[i],
+//         imageLink: imageLinks[i],
+//       };
   
-      arrayOfObjects.push(newObject);
-    }
+//       arrayOfObjects.push(newObject);
+//     }
   
-    return arrayOfObjects;
-  }
+//     return arrayOfObjects;
+//   }
 
-// Function to fetch data from the API
-export async function fetchDataFromAPI() {
-  const apiUrl = 'https://api.boardgameatlas.com/api/search?pretty=true&limit=10&client_id=rYefHsAVYG';
+// // Function to fetch data from the API
+// export async function fetchDataFromAPI() {
+//   const apiUrl = 'https://api.boardgameatlas.com/api/search?pretty=true&limit=10&client_id=rYefHsAVYG';
 
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+//   try {
+//     const response = await fetch(apiUrl);
+//     const data = await response.json();
 
-    const imageLinks = data.games.map(e => e.image_url);
-    const gameTitles = data.games.map(e => e.name);
+//     const imageLinks = data.games.map(e => e.image_url);
+//     const gameTitles = data.games.map(e => e.name);
 
-    return {
-      imageLinks: imageLinks,
-      gameTitles: gameTitles,
-    };
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-}
+//     return {
+//       imageLinks: imageLinks,
+//       gameTitles: gameTitles,
+//     };
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//   }
+// }
 
 
-export async function main() {
-    try {
-      const data = await fetchDataFromAPI();
+// export async function main() {
+//     try {
+//       const data = await fetchDataFromAPI();
   
-      // Access the arrays outside of the function
-      console.log('Image Links:', data.imageLinks);
-      console.log('Game Titles:', data.gameTitles);
+//       // Access the arrays outside of the function
+//       console.log('Image Links:', data.imageLinks);
+//       console.log('Game Titles:', data.gameTitles);
   
-      // Call the previous createArrayOfObjects function with the fetched data
-      const combinedArray = createArrayOfObjects(data.imageLinks, data.gameTitles);
+//       // Call the previous createArrayOfObjects function with the fetched data
+//       const combinedArray = createArrayOfObjects(data.imageLinks, data.gameTitles);
   
-      console.log('Combined Array:', combinedArray);
+//       console.log('Combined Array:', combinedArray);
   
-      return combinedArray;
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
+//       return combinedArray;
+//     } catch (error) {
+//       console.error('Error:', error);
+//     }
+//   }
   
-  // Example of using the combinedArray outside of main
-  export async function displayCombinedArray() {
-    try {
-      const combinedArray = await main();
+//   // Example of using the combinedArray outside of main
+//   export async function displayCombinedArray() {
+//     try {
+//       const combinedArray = await main();
   
-      // Use the combinedArray here
-      console.log('Using combinedArray:', combinedArray);
-      return combinedArray;
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
+//       // Use the combinedArray here
+//       console.log('Using combinedArray:', combinedArray);
+//       return combinedArray;
+//     } catch (error) {
+//       console.error('Error:', error);
+//     }
+//   }
 
 
 export const searchGamesAPI= () => {
