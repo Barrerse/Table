@@ -19,7 +19,7 @@ const SpecialOffer = () => {
       <p className="text-white pt-6">Games on Discount</p>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-3">
-        {cards.map((card) => (
+      {cards.map((card) => (
           <Card wallpaper={card.wallpaper} title={card.title} />
         ))}
       </div>
