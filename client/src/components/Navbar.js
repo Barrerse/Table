@@ -30,10 +30,10 @@ const Navbar = () => {
           </div>
 
           {/* Logo and brand name */}
-          <div className="flex items-center text-gray-400 font-semibold text-xl">
+          <Link to="/" className="flex items-center text-gray-400 font-semibold text-xl">
             <img src={logo} className="w-12 h-12 mr-2" alt="Logo" />
             <p>TABL</p>
-          </div>
+          </Link>
         </div>
 
         {/* Middle section */}
