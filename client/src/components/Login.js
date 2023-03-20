@@ -8,7 +8,7 @@ const Login = () => {
       <h1 className="mx-[2rem] mt-[2rem] text-white text-[14px] overflow-hidden">SIGN IN</h1>
       <form>
         <label>
-          <p className="mx-[2rem] mt-[2rem] text-blue text-[14px] overflow-hidden">SIGN IN WITH EMAIL ADDRESS</p>
+          <p className="text-blue text-[14px]">SIGN IN WITH EMAIL ADDRESS</p>
           <input type="text" />
         </label>
         <label>
