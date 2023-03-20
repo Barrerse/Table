@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import { FiMenu, FiX } from "react-icons/fi";
 import { ImDownload } from "react-icons/im";
 import { BiWorld } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,7 +40,9 @@ const Navbar = () => {
         <div className="hidden lg:flex pl-10">
           <ul className="text-gray-400 text-sm flex gap-5">
             <li>
-              <p className="text-lg font-semibold hover:text-gray-300">STORE</p>
+            <Link to="/store">
+                <p className="text-lg font-semibold hover:text-gray-300">STORE</p>
+              </Link>
             </li>
             <li>
               <p className="text-lg font-semibold hover:text-gray-300">EXPLORE</p>

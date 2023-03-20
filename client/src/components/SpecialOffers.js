@@ -1,8 +1,6 @@
 import React from "react";
-import gaming from "../assets/holder.png";
 import Card from "./Card";
 import one from "../assets/holder1.png";
-import two from "../assets/holder.png";
 const SpecialOffer = () => {
   const cards = [
     { wallpaper: one, title: "Board Game" },
