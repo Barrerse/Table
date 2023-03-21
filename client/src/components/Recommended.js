@@ -12,7 +12,7 @@ const Recomended = () => {
   return (
     <div className="mx-4 mt-4 text-white text-sm md:text-base overflow-hidden">
       {/* Title */}
-      <p className="text-2xl font-bold">FEATURED</p>
+      <p className="text-2xl font-bold">RECOMMENDED & FEATURED</p>
 
       {/* Featured */}
       <div className="flex flex-col md:flex-row md:pt-3">
