@@ -9,7 +9,7 @@ import Contact from './pages/Contact.js';
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-[#1b2838] h-screen">
+      <div className="bg-[#1b2838] min-h-screen">
         <Routes>
           <Route path="/store" element={<Store />} />
           <Route path="*" element={<Home />} />	

@@ -96,19 +96,27 @@ const Navbar = () => {
               onClick={toggleMobileMenu}
             />
           </div> */}
-          <ul className="flex flex-col gap-2 w-full text-center">
+          <ul className="flex flex-col gap-2 w-full text-center ">
             <li>
+              <Link to="/store">
               <p
                 className="text-lg font-semibold hover:text-gray-300">STORE</p>
+              </Link>
             </li>
             <li>
+              <Link to="/explore">
               <p className="text-lg font-semibold hover:text-gray-300">EXPLORE</p>
+              </Link>
             </li>
             <li>
+              <Link to="/about">
               <p className="text-lg font-semibold hover:text-gray-300">ABOUT</p>
+              </Link>
             </li>
             <li>
+              <Link to="/contact">
               <p className="text-lg font-semibold hover:text-gray-300">CONTACT</p>
+              </Link>
             </li>
             <li>
               <p className="text-lg font-semibold hover:text-gray-300">SIGN IN</p>

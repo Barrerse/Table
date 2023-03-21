@@ -1,13 +1,13 @@
 import gaming from "../assets/holder.png";
+// import mainImage from "../assets/holder.png";
 import gaming1 from "../assets/holder1.png";
 import gaming2 from "../assets/holder2.png";
 import gaming3 from "../assets/holder3.png";
 import gaming4 from "../assets/holder4.png";
 import { TbApps } from "react-icons/tb";
-import { useState } from "react";
 
 const Recomended = () => {
-  const [mainImage, setMainImage] = useState(gaming);
+  // const [mainImage, setMainImage] = useState(gaming);
 
   return (
     <div className="mx-4 mt-4 text-white text-sm md:text-base overflow-hidden">
@@ -18,7 +18,7 @@ const Recomended = () => {
       <div className="flex flex-col md:flex-row md:pt-3">
         <div className="w-full md:w-3/5 h-72 md:h-auto bg-red-400">
           <img
-            src={mainImage}
+            src={gaming}
             alt="Board game main"
             className="object-cover w-full h-full transition-image"
             style={{ maxHeight: "100%", objectFit: "cover"}}
