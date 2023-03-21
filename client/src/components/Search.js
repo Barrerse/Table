@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiSearch } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 const Search = () => {
   return (
@@ -9,13 +10,20 @@ const Search = () => {
     <p>Games</p>
   </li>
   <li className="my-1 sm:my-0 hover:text-blue-500">
+    <a href="https://www.boardgameatlas.com/kickstarter">
     <p>Kickstarters</p>
+    </a>
   </li>
   <li className="my-1 sm:my-0 hover:text-blue-500">
+    <Link to="/explore">
     <p>Discussion</p>
+    </Link>
   </li>
   <li className="my-1 sm:my-0 hover:text-blue-500">
-    <p>Deals</p></li>
+    <Link to="/explore">
+    <p>Deals</p>
+    </Link>
+    </li>
         </ul>
         <div className="relative sm:ml-4" style={{ backgroundColor: '#5298c2' }}>
           <input
