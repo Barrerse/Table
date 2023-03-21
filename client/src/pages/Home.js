@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar';
 import Search from '../components/Search.js';
 import Recommended from '../components/Recommended.js';
-import SpecialOffers from '../components/SpecialOffers.js';
+// import SpecialOffers from '../components/SpecialOffers.js';
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <Navbar />
       <Search />
       <Recommended />
-      <SpecialOffers />
+      {/* <SpecialOffers /> */}
 
     <div className=""></div>
     </div>

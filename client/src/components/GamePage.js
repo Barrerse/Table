@@ -81,15 +81,16 @@ const GameList = () => {
   };
 
   // Render the game list
+  
   return (
     <div>
-      <div className="flex justify-end pt-4 pr-4">
+      <div className="flex justify-center items-center pt-4 pb-2">
         <div className="relative inline-flex">
-          <button className="bg-gray-800 text-white py-1 px-3 rounded-l-md">
+          <div className="bg-gray-800 text-white py-1 px-3 rounded-l-md">
             Sort By
-          </button>
+          </div>
           <button
-            className="bg-gray-800 text-white py-1 px-3 rounded-r-md hover:bg-gray-700"
+            className="bg-gray-800 text-white py-1 px-3 hover:bg-gray-700"
             onClick={() => setSortType("title")}
           >
             Title
@@ -108,13 +109,17 @@ const GameList = () => {
           </button>
         </div>
       </div>
+      <hr className="border-gray-800" />
       <div className="flex flex-wrap justify-center">
         {games.sort(sortGames).map((game) => (
           <GameCard key={game.id} game={game} />
-          ))}
-          </div>
-        </div>
-      );
+        ))}
+      </div>
+    </div>
+  );
+  
+      
+  
     };
 
 export default GameList;
