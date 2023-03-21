@@ -34,15 +34,15 @@ const Recomended = () => {
                   src={gaming1}
                   alt=""
                   className="object-cover w-1/2 pr-1"
-                  onMouseOver={() => setMainImage(gaming1)}
-                  onMouseOut={() => setMainImage(gaming)}
+                  // onMouseOver={() => setMainImage(gaming1)}
+                  // onMouseOut={() => setMainImage(gaming)}
                 />
                 <img
                   src={gaming2}
                   alt=""
                   className="object-cover w-1/2 pl-1"
-                  onMouseOver={() => setMainImage(gaming2)}
-                  onMouseOut={() => setMainImage(gaming)}
+                  // onMouseOver={() => setMainImage(gaming2)}
+                  // onMouseOut={() => setMainImage(gaming)}
                 />
               </div>
               {/* second half of the image */}
@@ -51,15 +51,15 @@ const Recomended = () => {
                   src={gaming3}
                   alt=""
                   className="object-cover w-1/2 pr-1"
-                  onMouseOver={() => setMainImage(gaming3)}
-                  onMouseOut={() => setMainImage(gaming)}
+                  // onMouseOver={() => setMainImage(gaming3)}
+                  // onMouseOut={() => setMainImage(gaming)}
                 />
                 <img
                   src={gaming4}
                   alt=""
                   className="object-cover w-1/2 pl-1"
-                  onMouseOver={() => setMainImage(gaming4)}
-                  onMouseOut={() => setMainImage(gaming)}
+                  // onMouseOver={() => setMainImage(gaming4)}
+                  // onMouseOut={() => setMainImage(gaming)}
                 />
               </div>
             </div>

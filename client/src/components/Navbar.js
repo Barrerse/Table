@@ -45,13 +45,19 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
+              <Link to ="/explore">
               <p className="text-lg font-semibold hover:text-gray-300">EXPLORE</p>
+              </Link>
             </li>
             <li>
+              <Link to ="/about">
               <p className="text-lg font-semibold hover:text-gray-300">ABOUT</p>
+              </Link>
             </li>
             <li>
+              <Link to ="/contact">
               <p className="text-lg font-semibold hover:text-gray-300">CONTACT</p>
+              </Link>
             </li>
           </ul>
         </div>

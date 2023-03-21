@@ -1,14 +1,16 @@
 import React from 'react'
+import ComingSoon from '../components/Comingsoon';
 import Navbar from '../components/Navbar';
 
-const Store = () => {
+
+const About = () => {
   return (
     <div>
          <Navbar />
-
+         <ComingSoon />
 
     </div>
   )
 }
 
-export default Store
+export default About
