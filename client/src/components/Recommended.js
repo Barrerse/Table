@@ -4,11 +4,34 @@ import gaming2 from "../assets/holder2.png";
 import gaming3 from "../assets/holder3.png";
 import gaming4 from "../assets/holder4.png";
 import { TbApps } from "react-icons/tb";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { searchGamesAPI } from "../utils/API";
 
 const Recomended = () => {
   const [mainImage, setMainImage] = useState(gaming);
+  const [searchedGames, setSearchedGames] = useState([]);
 
+  const getGames = async () => {
+    const response = await searchGamesAPI();
+    if (!response.ok) {
+      throw new Error("something went wrong!");
+    }
+    const { games } = await response.json();
+    const gameData = games.map((game) => ({
+      name: game.name,
+      photo: game.image_url
+    }));
+    setSearchedGames(gameData);
+  };
+  
+  useEffect(() => {
+    getGames();
+  }, []);
+  
+  if (searchedGames.length < 1) {
+    return <div>Loading...</div>;
+  }
+  console.log(searchedGames);
   return (
     <div className="mx-4 mt-4 text-white text-sm md:text-base overflow-hidden">
       {/* Title */}
