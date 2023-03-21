@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SearchGames from './pages/SearchGames';
+import SavedGames from './pages/SavedGames';
+import Navbar from './components/Navbar';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Home from './pages/Home.js';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -26,15 +28,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <div className="bg-[#1b2838] h-screen">
-    
-    <Home />
-    {/* <Login /> */}
-  
-  <div className=""></div>
-  </div>
+      <Router>
+        <>
+          <Navbar />
+          
+        </>
+      </Router>
     </ApolloProvider>
-
   );
 }
 
