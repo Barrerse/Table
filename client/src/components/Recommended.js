@@ -30,7 +30,7 @@ const Recomended = () => {
   }, []);
   
   if (searchedGames.length < 1) {
-    return <div>Loading...</div>;
+    return <h1 className="text-white font-bold text-center mt-10">Loading...</h1>
   }
   console.log(searchedGames);
   return (
