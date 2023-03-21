@@ -10,10 +10,10 @@ const Search = () => {
     <p>Games</p>
   </li>
   <li className="my-1 sm:my-0 hover:text-blue-500">
-    <a href="https://www.boardgameatlas.com/kickstarter">
+  <a href="https://www.boardgameatlas.com/kickstarter" target="_blank" rel="noopener noreferrer">
     <p>Kickstarters</p>
-    </a>
-  </li>
+  </a>
+</li>
   <li className="my-1 sm:my-0 hover:text-blue-500">
     <Link to="/explore">
     <p>Discussion</p>
