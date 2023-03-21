@@ -4,10 +4,43 @@ import gaming2 from "../assets/holder2.png";
 import gaming3 from "../assets/holder3.png";
 import gaming4 from "../assets/holder4.png";
 import { TbApps } from "react-icons/tb";
-import { useState } from "react";
+import {React} from "react";
+import {useState, useEffect } from "react";
+import { searchGamesAPI } from "../utils/searchTest";
 
 const Recomended = () => {
   const [mainImage, setMainImage] = useState(gaming);
+  const [searchedGames, setGameData] = useState([]);
+
+
+
+  const getData = async () => {
+
+    const response = await searchGamesAPI();
+ if (!response.ok){
+   throw new Error("Something went wrong");
+ }
+ const {games} = await response.json();
+
+ const gamesData = games.map((game) => ({
+   name: game.name,
+   photo: game.image_url
+ }));
+
+ console.log(gamesData);
+ setGameData(gamesData);
+}
+
+useEffect(() =>{
+  getData();
+}, [])
+
+// this is what allows us to pull data without crashing
+if(searchedGames.length < 1){
+  return <div> Loading ... </div>
+}
+
+// return <> {searchedGames.map(game=> <div>{game.name}</div>)}</>
 
   return (
     <div className="mx-4 mt-4 text-white text-sm md:text-base overflow-hidden">
@@ -18,20 +51,20 @@ const Recomended = () => {
       <div className="flex flex-col md:flex-row md:pt-3">
         <div className="w-full md:w-3/5 h-72 md:h-auto bg-red-400">
           <img
-            src={mainImage}
+            src={searchedGames[2].photo}
             alt="Board game main"
-            className="object-cover w-full h-full transition-image"
+            className="object-cover  transition-image"
             style={{ maxHeight: "100%", objectFit: "cover"}}
           />
         </div>
         <div className="bg-[#0f1922] w-full md:w-2/5 flex flex-col justify-between">
           <div className="flex flex-col items-center justify-center h-full">
-            <p className="text-4xl mt-3">Name of Game</p>
+            <p className="text-4xl mt-3">{searchedGames[2].name}</p>
             <div className="px-4 w-full h-48 md:h-full pt-3">
               {/* one half of the image */}
               <div className="h-1/2 w-full flex pb-1">
                 <img
-                  src={gaming1}
+                  src={gaming}
                   alt=""
                   className="object-cover w-1/2 pr-1"
                   // onMouseOver={() => setMainImage(gaming1)}
