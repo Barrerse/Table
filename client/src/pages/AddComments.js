@@ -1,5 +1,6 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useContext, useState } from "react";
+import AccountNav from "./AccountNav";
 
 export default function AddComments() {
     const { action } = useParams();
@@ -13,6 +14,7 @@ export default function AddComments() {
   
     return (
       <div>
+        <AccountNav/>
         {action !== "new" && (
           <div className="text-center">
             <Link
