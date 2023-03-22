@@ -5,6 +5,7 @@ import Store from "./pages/Store.js";
 import Explore from "./pages/Explore.js";
 import About from "./pages/About.js";
 import Contact from "./pages/Contact.js";
+import Account from "./pages/Account.js";
 import Register from "./components/Register.js";
 import axios from "axios";
 import { UserContextProvider } from "./utils/UserContext";
@@ -26,6 +27,7 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Register" element={<Register />} />
+            <Route path="/Account" element={<Account />} />
           </Routes>
         </div>
       </UserContextProvider>
