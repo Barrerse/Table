@@ -11,6 +11,7 @@ import axios from "axios";
 import { UserContextProvider } from "./utils/UserContext";
 import { useEffect } from "react";
 import Games from './pages/Games.js';
+import Discussion from "./pages/Discussion.js";
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
@@ -33,6 +34,7 @@ function App() {
             <Route path="/Account/:subpage?" element={<Account />} />
             <Route path="/Account/:subpage/:action" element={<Account />} />
             <Route path="/Games" element={<Games />} />
+            <Route path="/Discussion" element={<Discussion />} />
           </Routes>
         </div>
       </UserContextProvider>

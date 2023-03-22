@@ -50,7 +50,7 @@ const Search = () => {
             </a>
           </li>
           <li className="my-1 sm:my-0 hover:text-blue-500">
-            <Link to="/explore">
+            <Link to="/discussion">
               <p>Discussion</p>
             </Link>
           </li>

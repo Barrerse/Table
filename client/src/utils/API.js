@@ -7,3 +7,4 @@ export const searchGamesAPI100 = (searchInput) => {
     return fetch(`https://api.boardgameatlas.com/api/search?pretty=true&limit=100&client_id=rYefHsAVYG`);
 }
 
+// rYefHsAVYG
