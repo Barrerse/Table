@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { searchGamesAPI } from "../utils/API";
 
 const Recomended = () => {
-  const [mainImage, setMainImage] = useState(gaming);
+  // const [mainImage, setMainImage] = useState(gaming);
   const [searchedGames, setSearchedGames] = useState([]);
 
   const getGames = async () => {

@@ -24,7 +24,7 @@ const Games = () => {
   return (
     <div>
         <Navbar />
-      <h1 className="text-3xl font-bold mb-6 text-white">All Games</h1>
+      <h1 className="text-5xl font-bold mb-6 text-white text-center mt-5">Top 100 Games Sold</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {games.map((game) => (
           <div
@@ -45,6 +45,9 @@ const Games = () => {
             <p className="text-sm">
               Playtime: {game.min_playtime} - {game.max_playtime} minutes
             </p>
+            <p className="text-sm">
+            Rating: {game.average_user_rating.toFixed(2)} / 5
+             </p>
           </div>
         ))}
       </div>
