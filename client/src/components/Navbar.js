@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import logo from "../assets/logo.png";
 import { FiMenu, FiX } from "react-icons/fi";
 import { ImDownload } from "react-icons/im";
 import { BiWorld } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { UserContext } from "../utils/UserContext";
 
 const Navbar = () => {
+  const {user} = useContext(UserContext);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -72,9 +75,17 @@ const Navbar = () => {
 
           {/* Sign in button */}
           <div className="ml-4 bg-white hover:bg-gray-50 px-2 py-1 rounded-lg group duration-100 ease-out">
+            <Link to={user?'/account':'/login'}>
             <p className="text-green-500 font-semibold group-hover:text-white duration-100 ease-out">
               Sign in
             </p>
+            {!!user && (
+              <div>
+                {user.name}
+              </div>
+              
+            )}
+            </Link>
           </div>
 
           {/* Location dropdown */}
