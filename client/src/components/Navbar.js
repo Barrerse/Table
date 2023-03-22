@@ -72,9 +72,11 @@ const Navbar = () => {
 
           {/* Sign in button */}
           <div className="ml-4 bg-white hover:bg-gray-50 px-2 py-1 rounded-lg group duration-100 ease-out">
+            <Link to="/login">
             <p className="text-green-500 font-semibold group-hover:text-white duration-100 ease-out">
               Sign in
             </p>
+            </Link>
           </div>
 
           {/* Location dropdown */}
