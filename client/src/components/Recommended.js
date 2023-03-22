@@ -34,9 +34,9 @@ const Recomended = () => {
   }
   console.log(searchedGames);
   return (
-    <div className="mx-4 mt-4 text-white text-sm md:text-base overflow-hidden">
+    <div className="mx-4 mt-4 text-white text-sm md:text-base overflow-hidden ">
       {/* Title */}
-      <p className="text-2xl font-bold">RECOMMENDED & FEATURED</p>
+      <p className="text-2xl font-bold ">RECOMMENDED & FEATURED</p>
 
       {/* Featured */}
       <div className="flex flex-col md:flex-row md:pt-3">
@@ -50,7 +50,7 @@ const Recomended = () => {
         </div>
         <div className="bg-[#0f1922] w-full md:w-2/5 flex flex-col justify-between">
           <div className="flex flex-col items-center justify-center h-full">
-            <p className="text-4xl mt-3">Name of Game</p>
+            <p className="text-4xl mt-3">Root</p>
             <div className="px-4 w-full h-48 md:h-full pt-3">
               {/* one half of the image */}
               <div className="h-1/2 w-full flex pb-1">
@@ -91,11 +91,13 @@ const Recomended = () => {
           <div className="flex items-center justify-between px-4 py-2">
             <div>
               {/* Todo: Add price using API  */}
-              <p className="text-lg font-bold">PRICE</p>
+              <p className="text-lg font-bold">
+                <s>$60.00</s> $47.60
+              </p>
             </div>
             <div className="flex items-center">
               <div className="bg-green-500 rounded-md py-1 px-3 mr-2">
-                <p className="text-sm font-bold">Discount</p>
+                <p className="text-sm font-bold">-21%</p>
               </div>
               <TbApps className="text-4xl mb-1" />
             </div>
