@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../utils/UserContext";
 
 const Navbar = () => {
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -33,7 +33,10 @@ const Navbar = () => {
           </div>
 
           {/* Logo and brand name */}
-          <Link to="/" className="flex items-center text-gray-400 font-semibold text-xl">
+          <Link
+            to="/"
+            className="flex items-center text-gray-400 font-semibold text-xl"
+          >
             <img src={logo} className="w-12 h-12 mr-2" alt="Logo" />
             <p>TABL</p>
           </Link>
@@ -43,23 +46,31 @@ const Navbar = () => {
         <div className="hidden lg:flex pl-10">
           <ul className="text-gray-400 text-sm flex gap-5">
             <li>
-            <Link to="/store">
-                <p className="text-lg font-semibold hover:text-gray-300">STORE</p>
+              <Link to="/store">
+                <p className="text-lg font-semibold hover:text-gray-300">
+                  STORE
+                </p>
               </Link>
             </li>
             <li>
-              <Link to ="/explore">
-              <p className="text-lg font-semibold hover:text-gray-300">EXPLORE</p>
+              <Link to="/explore">
+                <p className="text-lg font-semibold hover:text-gray-300">
+                  EXPLORE
+                </p>
               </Link>
             </li>
             <li>
-              <Link to ="/about">
-              <p className="text-lg font-semibold hover:text-gray-300">ABOUT</p>
+              <Link to="/about">
+                <p className="text-lg font-semibold hover:text-gray-300">
+                  ABOUT
+                </p>
               </Link>
             </li>
             <li>
-              <Link to ="/contact">
-              <p className="text-lg font-semibold hover:text-gray-300">CONTACT</p>
+              <Link to="/contact">
+                <p className="text-lg font-semibold hover:text-gray-300">
+                  CONTACT
+                </p>
               </Link>
             </li>
           </ul>
@@ -75,16 +86,31 @@ const Navbar = () => {
 
           {/* Sign in button */}
           <div className="ml-4 bg-white hover:bg-gray-50 px-2 py-1 rounded-lg group duration-100 ease-out">
-            <Link to={user?'/account':'/login'}>
-            <p className="text-green-500 font-semibold group-hover:text-white duration-100 ease-out">
-              Sign in
-            </p>
-            {!!user && (
-              <div>
-                {user.name}
-              </div>
-              
-            )}
+            <Link to={user ? "/account" : "/login"}>
+              {!user && (
+                <p className="text-green-500 font-semibold group-hover:text-blue duration-100 ease-out">
+                  Sign in
+                </p>
+              )}
+              {!!user && (
+                <p className="inline-flex gap-1 text-green-500 font-semibold group-hover:text-blue duration-100 ease-out">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  {user.name}
+                </p>
+              )}
             </Link>
           </div>
 
@@ -97,9 +123,9 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
-         {/* Mobile menu */}
-         {isMobileMenuOpen && (
+
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
         <div className="lg:hidden text-white text-sm mt-2 flex flex-col items-center">
           {/* <div className="bg-gray-900 w-full py-2 px-4 flex justify-end">
             <FiX
@@ -110,27 +136,36 @@ const Navbar = () => {
           <ul className="flex flex-col gap-2 w-full text-center ">
             <li>
               <Link to="/store">
-              <p
-                className="text-lg font-semibold hover:text-gray-300">STORE</p>
+                <p className="text-lg font-semibold hover:text-gray-300">
+                  STORE
+                </p>
               </Link>
             </li>
             <li>
               <Link to="/explore">
-              <p className="text-lg font-semibold hover:text-gray-300">EXPLORE</p>
+                <p className="text-lg font-semibold hover:text-gray-300">
+                  EXPLORE
+                </p>
               </Link>
             </li>
             <li>
               <Link to="/about">
-              <p className="text-lg font-semibold hover:text-gray-300">ABOUT</p>
+                <p className="text-lg font-semibold hover:text-gray-300">
+                  ABOUT
+                </p>
               </Link>
             </li>
             <li>
               <Link to="/contact">
-              <p className="text-lg font-semibold hover:text-gray-300">CONTACT</p>
+                <p className="text-lg font-semibold hover:text-gray-300">
+                  CONTACT
+                </p>
               </Link>
             </li>
             <li>
-              <p className="text-lg font-semibold hover:text-gray-300">SIGN IN</p>
+              <p className="text-lg font-semibold hover:text-gray-300">
+                SIGN IN
+              </p>
             </li>
           </ul>
         </div>

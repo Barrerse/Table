@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const bcrypt = require("bcrypt");
 const User = require("./models/User");
+const Game = require("./models/Game");
 const app = express();
 
 mongoose.connect(process.env.MONGO_URL);
@@ -66,21 +67,93 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/profile", async (req, res) => {
-    const {token} = req.cookies;
-    if (token) {
-      jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-        if (err) throw err;
-        const {name,email,_id} = await User.findById(userData.id);
-        res.json({name,email,_id});
-      });
-    } else {
-      res.json(null);
-    }
-  });
-
-app.post('/logout', (req, res) => {
-    res.cookie('token', '').json(true);
+  const { token } = req.cookies;
+  if (token) {
+    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+      if (err) throw err;
+      const { name, email, _id } = await User.findById(userData.id);
+      res.json({ name, email, _id });
+    });
+  } else {
+    res.json(null);
+  }
 });
 
+app.post("/logout", (req, res) => {
+  res.cookie("token", "").json(true);
+});
+
+app.post("/games", (req, res) => {
+  mongoose.connect(process.env.MONGO_URL);
+  const { token } = req.cookies;
+  const { gameid, name, image, description, rating, minplayers, maxplayers } =
+    req.body;
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    if (err) throw err;
+    const gameDoc = await Game.create({
+      owner: userData.id,
+      gameid,
+      name,
+      image,
+      description,
+      rating,
+      minplayers,
+      maxplayers,
+    });
+    res.json(gameDoc);
+  });
+});
+
+app.get("/user-games", (req, res) => {
+  mongoose.connect(process.env.MONGO_URL);
+  const { token } = req.cookies;
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    const { id } = userData;
+    res.json(await Game.find({ owner: id }));
+  });
+});
+
+app.get("/games/:id", async (req, res) => {
+  mongoose.connect(process.env.MONGO_URL);
+  const { id } = req.params;
+  res.json(await Game.findById(id));
+});
+
+app.put("/games", async (req, res) => {
+  mongoose.connect(process.env.MONGO_URL);
+  const { token } = req.cookies;
+  const {
+    id,
+    gameid,
+    name,
+    image,
+    description,
+    rating,
+    minplayers,
+    maxplayers,
+  } = req.body;
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    if (err) throw err;
+    const gameDoc = await Game.findById(id);
+    if (userData.id === gameDoc.owner.toString()) {
+      gameDoc.set({
+        gameid,
+        name,
+        image,
+        description,
+        rating,
+        minplayers,
+        maxplayers,
+      });
+      await gameDoc.save();
+      res.json("ok");
+    }
+  });
+});
+
+app.get('/places', async (req,res) => {
+  mongoose.connect(process.env.MONGO_URL);
+  res.json( await Game.find() );
+});
 
 app.listen(4000);
