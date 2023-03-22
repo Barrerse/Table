@@ -15,4 +15,4 @@ export const commentsAPI = () => {
 }
 export const searchGamesAPIVid = (searchInput) => { 
     return fetch(`https://api.boardgameatlas.com/api/game/videos?pretty=true&limit=20&client_id=rYefHsAVYG`);
-// rYefHsAVYG
+}
