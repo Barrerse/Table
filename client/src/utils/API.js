@@ -6,7 +6,6 @@ export const searchGamesAPI= () => {
 export const searchGamesAPI100 = (searchInput) => { 
     return fetch(`https://api.boardgameatlas.com/api/search?pretty=true&limit=100&client_id=rYefHsAVYG`);
 }
-
 export const clientAPI = () => {
     return fetch('https://api.boardgameatlas.com/api/forum?client_id=rYefHsAVYG');
 }
@@ -14,6 +13,6 @@ export const clientAPI = () => {
 export const commentsAPI = () => {
     return fetch('https://api.boardgameatlas.com/api/forum/comments?client_id=rYefHsAVYG');
 }
-
-
-// rYefHsAVYG
+export const searchGamesAPIVid = (searchInput) => { 
+    return fetch(`https://api.boardgameatlas.com/api/game/videos?pretty=true&limit=20&client_id=rYefHsAVYG`);
+}
