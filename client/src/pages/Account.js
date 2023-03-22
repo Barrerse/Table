@@ -20,7 +20,7 @@ export default function Account() {
 
   if (!ready) return "Loading...";
 
-  if (ready && !user) {
+  if (ready && !user && !redirect) {
     return <Navigate to={"/login"} />;
   }
 

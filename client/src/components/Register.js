@@ -49,7 +49,7 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="w-full bg-gray-300 p-2 text-blue rounded-2xl">
+          <button className="w-full bg-gray-300 my-2 p-2 text-blue rounded-2xl">
             Sign Up
           </button>
           <div className="text-gray-500 text-center py-2">

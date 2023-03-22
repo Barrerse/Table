@@ -30,7 +30,7 @@ if (redirect) {
   return (
     <div>
       <Navbar />
-      <div className="mt-4 grow flex items-center justify-around">
+      <div className="mt-4">
         <h1 className="text-3xl text-center text-white font-semibold">Login</h1>
         <form className="max-w-lg mx-auto" onSubmit={handleLoginSubmit}>
           <input
@@ -47,7 +47,7 @@ if (redirect) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="w-full bg-gray-300 p-2 text-blue rounded-2xl">
+          <button className="w-full bg-gray-300 my-2 p-2 text-blue rounded-2xl">
             Login
           </button>
           <div className="text-gray-500 text-center py-2">
