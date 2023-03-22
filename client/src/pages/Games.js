@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { searchGamesAPI100 } from '../utils/API';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { UserContext } from "../utils/UserContext";
 
 const Games = () => {
     const [games, setGames] = useState([]);
     const [loading, setLoading] = useState(true);
-    
+    const { ready, user, setUser } = useContext(UserContext);
 
     useEffect(() => {
         const fetchGames = async () => {
@@ -60,6 +61,14 @@ const Games = () => {
             <p className="text-sm">
             Rating: {game.average_user_rating.toFixed(2)} / 5
              </p>
+             <p>
+             {!!user && (
+              <div>
+                <button className="max-w-2xl mt-2 bg-green-300 p-2 text-blue rounded-2xl">Add to my Games</button>
+              </div>
+              
+            )}
+              </p>
           </div>
         ))}
         </div>

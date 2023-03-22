@@ -10,10 +10,11 @@ import Register from "./components/Register.js";
 import axios from "axios";
 import { UserContextProvider } from "./utils/UserContext";
 import { useEffect } from "react";
+import Games from './pages/Games.js';
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
-import Games from './pages/Games.js';
+
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/Account/:subpage?" element={<Account />} />
+            <Route path="/Account/:subpage/:action" element={<Account />} />
             <Route path="/Games" element={<Games />} />
           </Routes>
         </div>
