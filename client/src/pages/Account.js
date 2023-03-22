@@ -110,6 +110,7 @@ export default function Account() {
 
 Logout
             </button>
+
           </div>
         </div>
       )}
