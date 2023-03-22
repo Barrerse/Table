@@ -1,12 +1,10 @@
-import { Link, Navigate, useParams } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
-import Search from "../components/Search";
-import Games from "../pages/Games";
+import AccountNav from "./AccountNav";
+import {Navigate, useParams} from "react-router-dom";
 
-export default function AddGames() {
-  const { action } = useParams();
-  const {id} = useParams();
+export default function GamesFormPage() {
+    const {id} = useParams();
   const [gameid, setGameid] = useState("");
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -15,7 +13,6 @@ export default function AddGames() {
   const [minplayers, setMinplayers] = useState("");
   const [maxplayers, setMaxplayers] = useState("");
   const [redirect,setRedirect] = useState(false);
-  const [game,setGame] = useState(null);
 
   useEffect(() => {
     if (!id) {
@@ -32,7 +29,6 @@ export default function AddGames() {
        setMaxplayers(data.maxplayers);
     });
   }, [id]);
-
   async function saveGame(ev) {
     ev.preventDefault();
     const gameData = {
@@ -64,31 +60,7 @@ export default function AddGames() {
 
   return (
     <div>
-      {action !== "new" && (
-        <div className="text-center">
-          <Link
-            className="inline-flex p-2 px-6 text-blue bg-gray-300 rounded-full"
-            to={"/account/games/new"}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
-            </svg>
-            Add New Game
-          </Link>
-        </div>
-      )}
-      {action === "new" && (
+        <AccountNav />
         <div className="text-center">
           <form className="max-w-lg mx-auto" onSubmit={saveGame}>
             <input
@@ -146,9 +118,8 @@ export default function AddGames() {
               </button>
             </div>
           </form>
-          <div></div>
         </div>
-      )}
     </div>
   );
 }
+

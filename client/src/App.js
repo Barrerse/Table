@@ -6,6 +6,13 @@ import Explore from "./pages/Explore.js";
 import About from "./pages/About.js";
 import Contact from "./pages/Contact.js";
 import Account from "./pages/Account.js";
+import AddComments from "./pages/AddComments.js";
+
+import GamesFormPage from "./pages/GamesFormPage.js";
+import GamesPage from "./pages/GamesPage.js";
+import GamePage from "./pages/GamePage.js";
+
+
 import Register from "./components/Register.js";
 import axios from "axios";
 import { UserContextProvider } from "./utils/UserContext";
@@ -31,8 +38,12 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Register" element={<Register />} />
-            <Route path="/Account/:subpage?" element={<Account />} />
-            <Route path="/Account/:subpage/:action" element={<Account />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/account/games" element={<GamesPage />} />
+            <Route path="/account/comments" element={<AddComments />} />
+            <Route path="/account/games/new" element={<GamesFormPage />} />
+            <Route path="/account/games/:id" element={<GamesFormPage />} />
+            <Route path="/place/:id" element={<GamePage />} />
             <Route path="/Games" element={<Games />} />
             <Route path="/Discussion" element={<Discussion />} />
           </Routes>
