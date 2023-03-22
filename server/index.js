@@ -7,6 +7,8 @@ require("dotenv").config();
 const bcrypt = require("bcrypt");
 const User = require("./models/User");
 const app = express();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
 
 mongoose.connect(process.env.MONGO_URL);
 
@@ -26,6 +28,21 @@ app.use(
 app.get("/test", (req, res) => {
   res.json("test ok");
 });
+
+// stripe payment
+app.post("/create-payment-intent", async (req, res) => {
+  try {
+    const { amount } = req.body;
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount,
+      currency: "usd",
+    });
+    res.status(200).send(paymentIntent.client_secret);
+  } catch (error) {
+    res.status(500).json({ message: "Payment failed", error });
+  }
+});
+
 
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
