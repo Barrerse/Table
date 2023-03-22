@@ -13,6 +13,8 @@ import { useEffect } from "react";
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
+import Games from './pages/Games.js';
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/Account/:subpage?" element={<Account />} />
+            <Route path="/Games" element={<Games />} />
           </Routes>
         </div>
       </UserContextProvider>

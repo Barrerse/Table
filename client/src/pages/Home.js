@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar';
 import Search from '../components/Search.js';
 import Recommended from '../components/Recommended.js';
+import Footer from '../components/Footer.js';
 // import SpecialOffers from '../components/SpecialOffers.js';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <Search />
       <Recommended />
       {/* <SpecialOffers /> */}
+      <Footer />
 
     <div className=""></div>
     </div>
