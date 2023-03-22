@@ -1,11 +1,12 @@
 import Navbar from "../components/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../utils/UserContext";
 import { Link, Navigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function Account() {
-  const { ready, user } = useContext(UserContext);
+  const { ready, user, setUser } = useContext(UserContext);
+  const [redirect,setRedirect] = useState(null);
   let { subpage } = useParams();
   if (subpage === undefined) {
     subpage = "account";
@@ -13,6 +14,8 @@ export default function Account() {
 
   async function logout() {
     await axios.post("/logout");
+    setRedirect('/');
+    setUser(null);
   }
 
   if (!ready) return "Loading...";
@@ -28,6 +31,10 @@ export default function Account() {
     }
     return classes;
   }
+
+if(redirect) {
+    return <Navigate to={redirect} />;
+}
 
   return (
     <div>
