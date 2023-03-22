@@ -1,10 +1,19 @@
 import Navbar from "../components/Navbar";
 import { useContext } from "react";
 import { UserContext } from "../utils/UserContext";
-import { Navigate, Link } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 export default function Account() {
   const { ready, user } = useContext(UserContext);
+  let { subpage } = useParams();
+  if (subpage === undefined) {
+    subpage = "account";
+  }
+
+  async function logout() {
+    await axios.post("/logout");
+  }
 
   if (!ready) return "Loading...";
 
@@ -12,20 +21,40 @@ export default function Account() {
     return <Navigate to={"/login"} />;
   }
 
+  function linkClasses(type = null) {
+    let classes = "p-2 px-6 text-white";
+    if (type === subpage) {
+      classes = "p-2 px-6 text-blue bg-gray-300 rounded-full";
+    }
+    return classes;
+  }
+
   return (
     <div>
       <Navbar />
-      <nav className="w-full flex justify-center mt-8 gap-4">
-        <Link className="p-2 px-6 bg-gray-300 rounded-full" to={"/account"}>
+      <nav className="w-full flex justify-center mt-8 gap-4 mb-8">
+        <Link className={linkClasses("account")} to={"/account"}>
           My Profile
         </Link>
-        <Link className="p-2 px-6 text-white" to={"/account/games"}>
+        <Link className={linkClasses("games")} to={"/account/games"}>
           My Games
         </Link>
-        <Link className="p-2 px-6 text-white" to={"/account/comments"}>
+        <Link className={linkClasses("comments")} to={"/account/comments"}>
           My Comments
         </Link>
       </nav>
+      {subpage === "account" && (
+        <div className="text-center max-w-lg mx-auto">
+          <div className="text-white">
+            Logged in as {user.name} ({user.email})<br />
+          </div>
+          <div>
+            <button onClick={logout} className="max-w-2xl mt-2 bg-red-300 p-2 text-blue rounded-2xl">
+              Logout
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
