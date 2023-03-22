@@ -40,16 +40,17 @@ const ForumPage = () => {
           {posts.map((post) => (
             <div key={post.id} className="bg-gray-100 border border-gray-300 rounded p-4">
               <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
-              <p className="mb-2">{post.description}</p>
-              <p className="text-gray-600">By: {post.user.name}</p>
-              <h3 className="text-lg font-bold mt-4 mb-2">Comments:</h3>
+              {/* <p className="mb-2">{post.description}</p> */}
+              <p className="text-gray-600">By: {post.user.username}</p>
+              <h3 className="text-lg font-bold mt-4 mb-2"> Number of Comments: {post.num_comments} </h3>
+              <h3 className="text-lg font-bold mt-4 mb-2"> Number of Likes: {post.num_likes} </h3>
               <ul className="list-disc pl-8 space-y-2">
                 {comments
                   .filter((comment) => comment.post_id === post.id)
                   .map((comment) => (
-                    <li key={comment.id}>
-                      <p>{comment.content}</p>
-                      <p className="text-gray-600">By: {comment.username}</p>
+                    <li key={comments.id}>
+                      <p>{comments.content}</p>
+                      <p className="text-gray-600">By: {comments.username}</p>
                     </li>
                   ))}
               </ul>
