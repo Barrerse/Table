@@ -5,6 +5,7 @@ import Store from './pages/Store.js';
 import Explore from './pages/Explore.js';
 import About from './pages/About.js';
 import Contact from './pages/Contact.js';
+import Games from './pages/Games.js';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Login" element={<Login />} /> 
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Games" element={<Games />} />
         </Routes>
       </div>
     </BrowserRouter>

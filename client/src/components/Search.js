@@ -40,7 +40,9 @@ const Search = () => {
       <div className="gradient mx-[2.5rem] pl-4 pr-2 py-[0.1rem] mt-8 sm:flex sm:items-center sm:justify-between" style={{ backgroundColor: '#316282' }}>
         <ul className="flex flex-col sm:flex-row sm:items-center sm:py-1.5 sm:text-[14px] sm:gap-10 text-white">
           <li className="my-1 sm:my-0 hover:text-blue-500">
-            <p>Games</p>
+            <Link to="/games" className="text-white hover:text-blue-500">
+              Games
+            </Link>
           </li>
           <li className="my-1 sm:my-0 hover:text-blue-500">
             <a href="https://www.boardgameatlas.com/kickstarter" target="_blank" rel="noopener noreferrer">
