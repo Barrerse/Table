@@ -5,26 +5,38 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Games = () => {
-  const [games, setGames] = useState([]);
+    const [games, setGames] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
 
-  useEffect(() => {
-    const fetchGames = async () => {
-      try {
-        const response = await searchGamesAPI100();
-        const { games } = await response.json();
-        setGames(games);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchGames();
-  }, []);
+    useEffect(() => {
+        const fetchGames = async () => {
+          try {
+            const response = await searchGamesAPI100();
+            const { games } = await response.json();
+            setGames(games);
+            setLoading(false);
+          } catch (error) {
+            console.log(error);
+            setLoading(false);
+          }
+        };
+      
+        fetchGames();
+      }, []);
+      
 
   return (
     <div>
-        <Navbar />
-      <h1 className="text-5xl font-bold mb-6 text-white text-center mt-5">Top 100 Games Sold</h1>
+    <Navbar />
+    <h1 className="text-5xl font-bold mb-6 text-white text-center mt-5">
+      Top 100 Games Sold
+    </h1>
+    {loading ? (
+      <div className="flex justify-center items-center mt-10">
+        <div className="spinner"></div>
+      </div>
+    ) : (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {games.map((game) => (
           <div
@@ -50,9 +62,10 @@ const Games = () => {
              </p>
           </div>
         ))}
-      </div>
-      <Footer />
-    </div>
+        </div>
+    )}
+    <Footer />
+  </div>
   );
 };
 
