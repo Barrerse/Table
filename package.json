@@ -1,0 +1,25 @@
+{
+  "name": "table",
+  "version": "1.0.0",
+  "description": "Board Game Atlas API Full Stack Application ===========================================",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm start\"",
+    "start": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
+    "install": "concurrently \"cd server && npm install\" \"cd client && npm install\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barrerse/Table.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Barrerse/Table/issues"
+  },
+  "homepage": "https://github.com/Barrerse/Table#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
