@@ -163,9 +163,11 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
+              <Link to="/login">
               <p className="text-lg font-semibold hover:text-gray-300">
                 SIGN IN
               </p>
+              </Link>
             </li>
           </ul>
         </div>
