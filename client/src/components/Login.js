@@ -1,26 +1,33 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
   async function handleLoginSubmit(ev) {
     ev.preventDefault();
     try {
       await axios.post("/login", { email, password });
       alert("Login successful");
+      setRedirect(true);
     } catch (e) {
       alert("Login failed. Please try again later.");
     }
   }
 
+if (redirect) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <div>
       <Navbar />
-      <div classname="mt-4 grow flex items-center justify-around">
+      <div className="mt-4 grow flex items-center justify-around">
         <h1 className="text-3xl text-center text-white font-semibold">Login</h1>
         <form className="max-w-lg mx-auto" onSubmit={handleLoginSubmit}>
           <input

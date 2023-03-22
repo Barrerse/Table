@@ -7,12 +7,16 @@ import About from './pages/About.js';
 import Contact from './pages/Contact.js';
 import Register from './components/Register.js';
 import axios from "axios";
+import { UserContextProvider } from "./utils/UserContext";
 
 axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.withCredentials = true;
+
 
 function App() {
   return (
     <BrowserRouter>
+    <UserContextProvider>
       <div className="bg-[#1b2838] min-h-screen">
         <Routes>
           <Route path="/store" element={<Store />} />
@@ -24,6 +28,7 @@ function App() {
           <Route path="/Register" element={<Register />} /> 
         </Routes>
       </div>
+    </UserContextProvider>
     </BrowserRouter>
   );
 }
