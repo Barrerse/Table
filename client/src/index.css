@@ -49,3 +49,6 @@ code {
     transform: rotate(360deg);
   }
 }
+.small-container{
+  max-width:600px;
+}
