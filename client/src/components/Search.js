@@ -84,8 +84,7 @@ const Search = () => {
                   <p className="card-text text-sm text-gray-300 mb-4">{truncateSentences(game.description_preview, 100)}</p>
                   <p className="card-text text-sm text-gray-300 mb-1">Minimum number of players: {game.min_players}  </p> 
                   <p className="card-text text-sm text-gray-300 mb-1">Maximum number of players: {game.max_players}  </p>
-                  <p className="card-text text-sm text-gray-300 mb-1">Minimum playtime: {game.min_playtime}  </p>
-                  <p className="card-text text-sm text-gray-300 mb-1">Maximum playtime: {game.max_playtime}  </p>
+                  <p className="card-text text-sm text-gray-300 mb-1"> Playtime: {game.min_playtime} - {game.max_playtime} minutes </p>
                   <Link to={`${game.url}`} className="btn btn-primary text-white text-decoration-line: underline" target="_blank">
                     View Details
                   </Link>
