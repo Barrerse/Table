@@ -170,4 +170,4 @@ app.get("/places", async (req, res) => {
   res.json(await Game.find());
 });
 
-app.listen(4000);
+app.listen(process.env.PORT || 4000);
