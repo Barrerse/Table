@@ -3,6 +3,9 @@ Board Game Atlas API Full Stack Application
 
 This is a full-stack web application built using the MERN (MongoDB, Express, React, and Node.js) stack, which utilizes the Board Game Atlas API to provide users with a platform to search for and purchase board games. The application is styled using Tailwind CSS.
 
+Checkout the [website here!](https://limitless-sea-74669.herokuapp.com/)
+
+
 Table of Contents
 -----------------
 
@@ -13,7 +16,7 @@ Table of Contents
 -   [Contributing](#contributing)
 -   [License](#license)
 
-https://limitless-sea-74669.herokuaherokupp.com/ | https://git.heroku.com/limitless-sea-74669.git
+
 
 Getting Started
 ---------------
