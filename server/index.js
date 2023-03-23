@@ -9,6 +9,7 @@ const User = require("./models/User");
 const Game = require("./models/Game");
 const app = express();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const path=require("path");
 
 mongoose.connect(process.env.MONGO_URL);
 
@@ -23,6 +24,14 @@ app.use(cookieParser());
 //     { origin: false },
 //   )
 // );
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 
 app.get("/test", (req, res) => {
   res.json("test ok");
