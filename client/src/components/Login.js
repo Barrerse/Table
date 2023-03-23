@@ -13,8 +13,11 @@ const Login = () => {
 
   async function handleLoginSubmit(ev) {
     ev.preventDefault();
+    axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+    axios.defaults.headers.post["Referrer-Policy"]= "no-referrer";
     try {
       const {data} = await axios.post("/login", { email, password });
+      console.log(data)
       alert("Login successful");
       setUser(data);
       setRedirect(true);

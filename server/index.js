@@ -19,10 +19,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(
-  cors({
-    credentials: true,
-    origin: "*",
-  })
+  cors(
+    { origin: false },
+  )
 );
 
 app.get("/test", (req, res) => {
