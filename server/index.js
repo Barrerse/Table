@@ -10,7 +10,6 @@ const Game = require("./models/Game");
 const app = express();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-
 mongoose.connect(process.env.MONGO_URL);
 
 const bcryptSalt = bcrypt.genSaltSync(10);
@@ -19,12 +18,21 @@ const jwtSecret = "sdfasdfasdfasdfasd";
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-  cors({
-    credentials: true,
-    origin: "http://localhost:3000",
-  })
-);
+const whitelist = ["http://localhost:3000"];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.get("/test", (req, res) => {
   res.json("test ok");
@@ -43,7 +51,6 @@ app.post("/create-payment-intent", async (req, res) => {
     res.status(500).json({ message: "Payment failed", error });
   }
 });
-
 
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
@@ -168,9 +175,9 @@ app.put("/games", async (req, res) => {
   });
 });
 
-app.get('/places', async (req,res) => {
+app.get("/places", async (req, res) => {
   mongoose.connect(process.env.MONGO_URL);
-  res.json( await Game.find() );
+  res.json(await Game.find());
 });
 
 app.listen(4000);
