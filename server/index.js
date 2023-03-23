@@ -18,11 +18,11 @@ const jwtSecret = "sdfasdfasdfasdfasd";
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-  cors(
-    { origin: false },
-  )
-);
+// app.use(
+//   cors(
+//     { origin: false },
+//   )
+// );
 
 app.get("/test", (req, res) => {
   res.json("test ok");
