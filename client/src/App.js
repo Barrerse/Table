@@ -20,8 +20,6 @@ import { useEffect } from "react";
 import Games from './pages/Games.js';
 import Discussion from "./pages/Discussion.js";
 
-axios.defaults.baseURL = "http://localhost:4000";
-axios.defaults.withCredentials = true;
 
 
 
