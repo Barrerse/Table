@@ -19,7 +19,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-const whitelist = ["http://localhost:3000"];
+const domainsFromEnv = process.env.CORS_DOMAINS || "";
+
+const whitelist = domainsFromEnv.split(",").map((item) => item.trim());
 
 const corsOptions = {
   origin: function (origin, callback) {
