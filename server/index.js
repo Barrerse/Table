@@ -18,6 +18,7 @@ const jwtSecret = "sdfasdfasdfasdfasd";
 app.use(express.json());
 app.use(cookieParser());
 
+
 const whitelist = ["http://localhost:3000"];
 
 const corsOptions = {
